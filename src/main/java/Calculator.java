@@ -1,6 +1,6 @@
 public class Calculator {
     private String level;
-
+    // домашняя работа
     public int sum(int a, int b) {
         return a + b;
     }

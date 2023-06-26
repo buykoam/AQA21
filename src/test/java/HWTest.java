@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.List;
-
+// домашняя работа
 public class HWTest extends BaseTest {
     @Test (groups = "smoke")
     public void divIntTest() {
