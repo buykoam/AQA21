@@ -15,6 +15,7 @@ public class BasicLocatorsTest {
         driver = browserFactory.getDriver();
     }
 
+
     @AfterMethod
     public void tearDown() {
         driver.quit();

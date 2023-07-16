@@ -30,6 +30,7 @@ public class CssSelectorsTest {
     public void cssSelectorsTest() {
         driver.get("file:D://TeachMeAQA//AQA21onl-testng//src//test//resources//index.html");
 
+
         // Поиск по id
         Assert.assertTrue(driver.findElement(By.cssSelector("#my-Address")).isDisplayed());
         //   аналог
