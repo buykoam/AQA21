@@ -15,6 +15,25 @@ public class ReadProperties {
         }
     }
 
+    public static String getUrl1() {
+        return properties.getProperty("url1");
+    }
+
+    public static String browserName1() {
+        return properties.getProperty("browser1");
+    }
+
+    public static String username1() {
+        return properties.getProperty("username1");
+    }
+
+    public static String password1() {
+        return properties.getProperty("password1");
+    }
+
+    public static boolean isHeadless1() {
+        return properties.getProperty("headless1").equalsIgnoreCase("true");
+    }
     public static String getUrl() {
         return properties.getProperty("url");
     }
