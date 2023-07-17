@@ -46,6 +46,6 @@ public class BasicLocatorsTestHW {
         Thread.sleep(3000);
 
         //Find element by PartialLinkText
-        driver.findElement(By.partialLinkText("Add to")).click();
+        driver.findElement(By.partialLinkText("Back")).click();
     }
 }

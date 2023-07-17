@@ -53,4 +53,11 @@ public class ReadProperties {
     public static boolean isHeadless() {
         return properties.getProperty("headless").equalsIgnoreCase("true");
     }
+
+    public static boolean isHeadless2() {
+        return properties.getProperty("headless1").equalsIgnoreCase("true");
+    }
+    public static String getUrl2() {
+        return properties.getProperty("url2");
+    }
 }
