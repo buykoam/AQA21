@@ -15,9 +15,16 @@ public abstract class BasePage {
         driver.get(ReadProperties.getUrl() + pagePath);
     }
 
-    protected abstract By getPageIdentifier();
+    protected abstract By getPageIdentifier() throws InterruptedException;
+    protected abstract By getAddedCart() throws InterruptedException;
 
-    public boolean isPageOpened() {
+    public boolean isPageOpened() throws InterruptedException {
+        Thread.sleep(2000);
         return driver.findElement(getPageIdentifier()).isDisplayed();
+    }
+
+    public boolean isCartAdded() throws InterruptedException {
+        Thread.sleep(2000);
+        return driver.findElement(getAddedCart()).isDisplayed();
     }
 }
