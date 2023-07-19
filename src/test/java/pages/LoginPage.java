@@ -22,6 +22,11 @@ public class LoginPage extends BasePage {
         return logInButtonLocator;
     }
 
+    @Override
+    protected By getAddedCart() throws InterruptedException {
+        return logInButtonLocator;
+    }
+
     // Блок атомарных методов
     public WebElement getUsernameInput() {
         return driver.findElement(usernameInputLocator);
