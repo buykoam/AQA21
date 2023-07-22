@@ -16,22 +16,22 @@ public class ReadProperties {
     }
 
     public static String getUrl() {
-        return properties.getProperty("url");
+        return properties.getProperty("url1");
     }
 
     public static String browserName() {
-        return properties.getProperty("browser");
+        return properties.getProperty("browser1");
     }
 
     public static String username() {
-        return properties.getProperty("username");
+        return properties.getProperty("username1");
     }
 
     public static String password() {
-        return properties.getProperty("password");
+        return properties.getProperty("password1");
     }
 
     public static boolean isHeadless() {
-        return properties.getProperty("headless").equalsIgnoreCase("true");
+        return properties.getProperty("headless1").equalsIgnoreCase("true");
     }
 }

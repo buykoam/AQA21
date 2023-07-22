@@ -4,31 +4,32 @@ import factory.BrowserFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import pages.ProductPage;
-import steps.AddCartStep;
-import steps.LoginStep;
+import steps.AddCartStep1;
+import steps.CheckCartStep1;
+import steps.LoginStep1;
 import utils.configuration.ReadProperties;
 
-public class BaseTest {
+public class BaseTest1 {
     protected WebDriver driver;
 
-    protected LoginStep loginStep;
-    protected AddCartStep addCartStep;
+    protected LoginStep1 loginStep;
+    protected AddCartStep1 addCartStep;
+    protected CheckCartStep1 checkCartStep;
 
     @BeforeMethod
     public void setUp() {
         BrowserFactory browserFactory = new BrowserFactory();
         driver = browserFactory.getDriver();
 
-        loginStep = new LoginStep(driver);
-        addCartStep = new AddCartStep(driver);
-
+        loginStep = new LoginStep1(driver);
+        addCartStep = new AddCartStep1(driver);
+        checkCartStep = new CheckCartStep1(driver);
         driver.get(ReadProperties.getUrl());
     }
 
-    @AfterMethod
-    public void tearDown() {
-        driver.quit();
-    }
+//    @AfterMethod
+ //   public void tearDown() {
+//        driver.quit();
+//    }
 
 }

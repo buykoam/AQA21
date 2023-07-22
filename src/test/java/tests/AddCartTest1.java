@@ -1,11 +1,10 @@
 package tests;
 
-import baseEntities.BaseTest;
+import baseEntities.BaseTest1;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utils.configuration.ReadProperties;
 
-public class AddCartTest extends BaseTest {
+public class AddCartTest1 extends BaseTest1 {
 
     @Test
 
