@@ -17,7 +17,13 @@ public class TestCaseTest1 extends BaseTest1 {
                 addCartStep.successAddCart().isCartAdded()
         );
         Assert.assertTrue(
-                checkCartStep.checkCart().isCartAdded()
+                checkCartStep.successCheckCart().isPageOpened2()
+        );
+        Assert.assertTrue(
+                addInfoStep.successAddInfo(ReadProperties.firstname(), ReadProperties.lastname(), ReadProperties.code()).getTitleInfo()
+        );
+        Assert.assertTrue(
+                finishStep.successFinish().getCompleteHeader()
         );
     }
 }

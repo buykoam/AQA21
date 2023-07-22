@@ -28,8 +28,23 @@ public class ProductPage1 extends BasePage1 {
     }
 
     @Override
+    protected By getPageIdentifier2() throws InterruptedException {
+        return null;
+    }
+
+    @Override
     protected By getAddedCart() throws InterruptedException {
         return removeButtonLocator;
+    }
+
+    @Override
+    protected By getTitle() throws InterruptedException {
+        return null;
+    }
+
+    @Override
+    protected By getHeader() throws InterruptedException {
+        return null;
     }
 
     public void openPageByUrl() {

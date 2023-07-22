@@ -23,8 +23,23 @@ public class LoginPage1 extends BasePage1 {
     }
 
     @Override
+    protected By getPageIdentifier2() throws InterruptedException {
+        return null;
+    }
+
+    @Override
     protected By getAddedCart() throws InterruptedException {
         return logInButtonLocator;
+    }
+
+    @Override
+    protected By getTitle() throws InterruptedException {
+        return null;
+    }
+
+    @Override
+    protected By getHeader() throws InterruptedException {
+        return null;
     }
 
     // Блок атомарных методов

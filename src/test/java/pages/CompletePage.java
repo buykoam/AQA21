@@ -5,25 +5,25 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class CartPage1 extends BasePage1 {
+public class CompletePage extends BasePage1 {
 
     // Блок описания локаторов для элементов
-    private final By checkoutIdLocator = By.id("checkout");
-    private final By getPageIdentifier2 = By.className("checkout_info");
+    private final By finishButtonLocator = By.id("finish");
+    private final By completeHeader= By.xpath("//div[text() = 'Your order has been dispatched, and will arrive just as fast as the pony can get there!']");
 
     // Блок инициализации
-    public CartPage1(WebDriver driver) {
+    public CompletePage(WebDriver driver) {
         super(driver);
     }
 
     @Override
     protected By getPageIdentifier() throws InterruptedException {
-        return getPageIdentifier2;
+        return null;
     }
 
     @Override
     protected By getPageIdentifier2() throws InterruptedException {
-        return getPageIdentifier2;
+        return null;
     }
 
     @Override
@@ -38,19 +38,16 @@ public class CartPage1 extends BasePage1 {
 
     @Override
     protected By getHeader() throws InterruptedException {
-        return null;
+        return completeHeader;
     }
 
-
     // Блок атомарных методов
-
-    public WebElement getCheckoutId() {
-        return driver.findElement(checkoutIdLocator);
+    public WebElement getFinishButton() {
+        return driver.findElement( finishButtonLocator);
     }
 
     // Блок комплексных методов
-    public void checkCart() {
-        getCheckoutId().click();
+    public void getComplete() {
+        getFinishButton().click();
     }
-
 }
