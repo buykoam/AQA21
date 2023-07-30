@@ -1,6 +1,8 @@
 package tests;
 
 import baseEntities.BaseTest;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -30,13 +32,14 @@ public class ActionTests extends BaseTest {
     }
 
     @Test
+    @Severity(SeverityLevel.NORMAL)
     public void uploadFileTest() throws InterruptedException {
         driver.get("http://the-internet.herokuapp.com/upload");
 
         WaitService waitService = new WaitService(driver);
 
         WebElement fileUploadElement = waitService.waitForExists(By.xpath("//form/input[@type='file']"));
-        String pathToFile = ActionTests.class.getClassLoader().getResource("download.jpeg").getPath();
+        String pathToFile = ActionTests.class.getClassLoader().getResource("D:\\TeachMeAQA\\AQA21onl-testng\\src\\test\\resources\\download.jpeg").getPath();
         System.out.println(pathToFile);
         fileUploadElement.sendKeys(pathToFile);
 
