@@ -1,11 +1,18 @@
+import data.StaticProvider;
 import data.StaticProviderDouble;
 import data.StaticProviderInt;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.util.List;
+
+import static org.testng.AssertJUnit.assertEquals;
+
 // домашняя работа
 public class HWTest extends BaseTest {
+    private int attempt = 1;
+
     @Test (groups = "smoke")
     public void divIntTest() {
         int expectedValue = 3;
@@ -112,4 +119,35 @@ public class HWTest extends BaseTest {
     public void divDoubleTest_9(double a, double b, double expectedValue) {
         Assert.assertEquals(calculator.div(a, b),expectedValue, "Значения не одинаковые");
     }
+    @Test (priority = 2, groups = "smoke", testName = "Деление на 0 double")
+    public void divDoubleTest_10(){
+        Assert.assertEquals(calculator.div(0d, 0), Double.NaN, "divDoubleTest_10 не верно");
+    }
+    @Test (priority = 2, groups = "smoke", testName = "Double.POSITIVE_INFINITY")
+    public void divDoubleTest_11(){
+        double result = calculator.div(158.2, 0);
+        Assert.assertEquals(Double.POSITIVE_INFINITY, result);
+    }
+    @Test (priority = 2, groups = "smoke",  testName = "Double.NEGATIVE_INFINITY")
+    public void divDoubleTest_12(){
+        double result = calculator.div(-158.2, 0);
+        Assert.assertEquals(Double.NEGATIVE_INFINITY, result);
+    }
+    @Parameters({"login", "psw"})
+    @Test
+    public void paramTest(String login, String psw) {
+        System.out.println("Login: " + login + " Password: " + psw);
+    }
+    @Test(retryAnalyzer = Retry.class)
+    public void retryTest() {
+        if (attempt == 5) {
+            System.out.println("Attempt is: " + attempt);
+            Assert.assertTrue(true);
+        } else {
+            attempt++;
+            System.out.println("Attempt is: " + attempt);
+            throw new NullPointerException();
+        }
+    }
+
 }
