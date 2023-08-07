@@ -1,6 +1,7 @@
 package pages;
 
 import baseEntities.BasePageHW;
+import models.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -55,14 +56,11 @@ public class LoginPageHW extends BasePageHW {
         return driver.findElement(logInButtonLocator);
     }
 
-    public void setEmail(String value) {
-        getUsernameInput().sendKeys(value);
-    }
 
     // Блок комплексных методов
-    public void login(String username, String password) {
-        getUsernameInput().sendKeys(username);
-        getPswInput().sendKeys(password);
+    public void login(User user) {
+        getUsernameInput().sendKeys(user.getUsername1());
+        getPswInput().sendKeys(user.getPassword1());
         getLogInButton().click();
     }
 

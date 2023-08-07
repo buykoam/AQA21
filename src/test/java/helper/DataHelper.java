@@ -12,6 +12,13 @@ public class DataHelper {
 
         return user;
     }
+    public static User getAdminUser1() {
+        User user = new User();
+        user.setUsername1(ReadProperties.username());
+        user.setPassword1(ReadProperties.password());
+
+        return user;
+    }
 
     public static User getStandartUser() {
         User user = new User();

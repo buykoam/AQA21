@@ -1,17 +1,17 @@
 package tests;
 
 import baseEntities.BaseTestHW;
+import helper.DataHelper;
+import helper.InfoHelper;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utils.configuration.ReadProperties;
 
-public class TestCaseTest1 extends BaseTestHW {
+public class Patterns extends BaseTestHW {
 
     @Test
-    public void successLoginTest() throws InterruptedException {
+    public void E2ETestWithValueOfObject() throws InterruptedException {
         Assert.assertTrue(
-                loginStep.successLogin(ReadProperties.username(), ReadProperties.password()
-                ).isPageOpened()
+                loginStep.successLogin(DataHelper.getAdminUser1()).isPageOpened()
         );
         Assert.assertTrue(
                 addCartStep.successAddCart().isCartAdded()
@@ -20,7 +20,7 @@ public class TestCaseTest1 extends BaseTestHW {
                 checkCartStep.successCheckCart().isPageOpened2()
         );
         Assert.assertTrue(
-                addInfoStep.successAddInfo(ReadProperties.firstname(), ReadProperties.lastname(), ReadProperties.code()).getTitleInfo()
+                addInfoStep.successAddInfo(InfoHelper.getUserInfo()).getTitleInfo()
         );
         Assert.assertTrue(
                 finishStep.successFinish().getCompleteHeader()

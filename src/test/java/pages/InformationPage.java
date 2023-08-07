@@ -1,6 +1,7 @@
 package pages;
 
 import baseEntities.BasePageHW;
+import models.InfoBuyer;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -71,10 +72,10 @@ public class InformationPage extends BasePageHW {
     }
 
     // Блок комплексных методов
-    public void addInfo(String firstname, String lastname, String code) {
-        getFirstNameInput().sendKeys(firstname);
-        getLastNameInput().sendKeys(lastname);
-        getCode().sendKeys(code);
+    public void addInfo(InfoBuyer InfoBuyer) {
+        getFirstNameInput().sendKeys(InfoBuyer.getFirstName());
+        getLastNameInput().sendKeys(InfoBuyer.getLastName());
+        getCode().sendKeys(InfoBuyer.getCode());
         getCheck().click();
     }
 }

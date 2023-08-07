@@ -2,6 +2,7 @@ package steps;
 
 
 import baseEntities.BaseStepHW;
+import models.InfoBuyer;
 import org.openqa.selenium.WebDriver;
 import pages.InformationPage;
 import pages.ProductPageHW;
@@ -12,8 +13,8 @@ public class AddInfoStep extends BaseStepHW {
         super(driver);
     }
 
-    public InformationPage successAddInfo(String firstname, String lastname, String code) {
-        infoPage.addInfo(firstname, lastname, code);
+    public InformationPage successAddInfo(InfoBuyer infoBuyer) {
+        infoPage.addInfo(infoBuyer);
 
         return infoPage;
     }

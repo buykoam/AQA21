@@ -1,6 +1,7 @@
 package steps;
 
 import baseEntities.BaseStepHW;
+import models.User;
 import org.openqa.selenium.WebDriver;
 import pages.ProductPageHW;
 
@@ -10,8 +11,8 @@ public class LoginStepHW extends BaseStepHW {
         super(driver);
     }
 
-    public ProductPageHW successLogin(String username, String psw) {
-        loginPage.login(username, psw);
+    public ProductPageHW successLogin(User user) {
+        loginPage.login(user);
 
         return productPage;
     }
