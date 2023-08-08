@@ -7,6 +7,7 @@ public class BaseStepHW {
     protected WebDriver driver;
 
     protected LoginPageHW loginPage;
+    protected LoginPageFactoryHW loginPageFactoryHW;
     protected ProductPageHW productPage;
     protected CartPageHW cartPage;
     protected InformationPage infoPage;
@@ -16,6 +17,7 @@ public class BaseStepHW {
         this.driver = driver;
 
         loginPage = new LoginPageHW(driver);
+        loginPageFactoryHW = new LoginPageFactoryHW(driver);
         productPage = new ProductPageHW(driver);
         cartPage = new CartPageHW(driver);
         infoPage = new InformationPage(driver);

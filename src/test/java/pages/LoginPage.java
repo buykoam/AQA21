@@ -1,10 +1,10 @@
 package pages;
 
 import baseEntities.BasePage;
-import models.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -13,11 +13,20 @@ import java.time.Duration;
 public class LoginPage extends BasePage {
 
     // Блок описания локаторов для элементов
-    private final By emailInputLocator = By.id("name");
-    private final By pswInputLocator = By.id("password");
-    private final By logInButtonLocator = By.id("button_primary");
-    private final By errorTextLocator = By.className("error-text");
-    private final By errorFieldTextLocator = By.className("loginpage-message");
+    @FindBy (id = "name")
+    public WebElement emailInput;
+
+    @FindBy (id = "password")
+    public WebElement pswInput;
+
+    @FindBy (id = "button_primary")
+    public WebElement logInButton;
+
+    @FindBy (className = "error-text")
+    public WebElement errorText;
+
+    @FindBy (className = "loginpage-message")
+    public WebElement errorFieldText;
 
     // Блок инициализации
     public LoginPage(WebDriver driver) {
@@ -26,43 +35,14 @@ public class LoginPage extends BasePage {
 
     @Override
     protected By getPageIdentifier() {
-        return logInButtonLocator;
+        return By.id("button_primary");
     }
 
-    // Блок атомарных методов
-    public WebElement getEmailInput() {
-        return waitService.waitForExists(emailInputLocator);
-    }
-
-    public WebElement getPswInput() {
-        return waitService.waitForExists(pswInputLocator);
-    }
-
-    public boolean isPswInputDisplayed() {
-        return waitService.waitForVisibility(getPswInput()).isDisplayed();
-    }
-
-    public WebElement getLogInButton() {
-        return driver.findElement(logInButtonLocator);
-    }
-
-    public void setEmail(String value) {
-        getEmailInput().sendKeys(value);
-    }
-
-    public WebElement getErrorTextElement() {
-        return driver.findElement(errorTextLocator);
-    }
-
-    public WebElement getErrorFieldTextElement() {
-        return driver.findElement(errorFieldTextLocator);
-    }
 
     // Блок комплексных методов
-    public void login(User user) {
-        setEmail(user.getEmail());
-        getPswInput().sendKeys(user.getPassword());
-        getLogInButton().click();
+    public void login(String username, String psw) {
+        emailInput.sendKeys(username);
+        pswInput.sendKeys(psw);
+        logInButton.click();
     }
-
 }

@@ -1,16 +1,25 @@
 package helper;
 
 import models.InfoBuyer;
-import models.User;
-import utils.configuration.ReadProperties;
+import models.InfoBuyerBuilder;
+import utils.configuration.ReadPropertiesHW;
 
 public class InfoHelper {
     public static InfoBuyer getUserInfo() {
         InfoBuyer infoBuyer = new InfoBuyer();
-        infoBuyer.setFirstName(ReadProperties.firstname());
-        infoBuyer.setLastName(ReadProperties.lastname());
-        infoBuyer.setCode(ReadProperties.code());
+        infoBuyer.setFirstName(ReadPropertiesHW.firstname());
+        infoBuyer.setLastName(ReadPropertiesHW.lastname());
+        infoBuyer.setCode(ReadPropertiesHW.code());
 
         return infoBuyer;
+    }
+    public static InfoBuyerBuilder getUserInfoWithBuilder() {
+        InfoBuyerBuilder infoBuyerBuilder = new InfoBuyerBuilder.Builder()
+                .withFirstName("Test")
+                .withLastName("Test")
+                .withCode("123")
+                .build();
+
+        return infoBuyerBuilder;
     }
 }

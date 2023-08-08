@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import utils.configuration.ReadProperties;
+import utils.configuration.ReadPropertiesHW;
 
 import java.time.Duration;
 
@@ -16,7 +16,7 @@ public class BrowserFactory {
     private DriverManagerType driverManagerType = null;
 
     public BrowserFactory() {
-        switch (ReadProperties.browserName().toLowerCase()) {
+        switch (ReadPropertiesHW.browserName().toLowerCase()) {
             case "chrome" :
                 driverManagerType = DriverManagerType.CHROME;
                 //WebDriverManager.getInstance(driverManagerType).setup();
@@ -31,7 +31,7 @@ public class BrowserFactory {
                 driver = new FirefoxDriver(getFirefoxOptions());
                 break;
             default:
-                System.out.println("Browser " + ReadProperties.browserName() + " is not supported.");
+                System.out.println("Browser " + ReadPropertiesHW.browserName() + " is not supported.");
                 break;
         }
     }

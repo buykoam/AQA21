@@ -16,35 +16,26 @@ public class ReadProperties {
     }
 
     public static String getUrl() {
-        return properties.getProperty("url1");
+        return properties.getProperty("url");
     }
 
     public static String browserName() {
-        return properties.getProperty("browser1");
+        return properties.getProperty("browser");
     }
 
     public static String username() {
-        return properties.getProperty("username1");
+        return properties.getProperty("username");
     }
 
     public static String password() {
-        return properties.getProperty("password1");
+        return properties.getProperty("password");
     }
-    public static String firstname() {
-        return properties.getProperty("firstname");
-    }
-    public static String lastname() {
-        return properties.getProperty("lastname");
-    }
-    public static String code() {
-        return properties.getProperty("code");
+
+    public static int timeout() {
+        return Integer.parseInt(properties.getProperty("timeout"));
     }
 
     public static boolean isHeadless() {
-        return properties.getProperty("headless1").equalsIgnoreCase("true");
-    }
-
-    public static long timeout() {
-        return 0;
+        return properties.getProperty("headless").equalsIgnoreCase("true");
     }
 }

@@ -2,7 +2,7 @@ package baseEntities;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import utils.configuration.ReadProperties;
+import utils.configuration.ReadPropertiesHW;
 
 public abstract class BasePageHW {
     protected WebDriver driver;
@@ -12,7 +12,7 @@ public abstract class BasePageHW {
     }
 
     public void openPageByUrl(String pagePath) {
-        driver.get(ReadProperties.getUrl() + pagePath);
+        driver.get(ReadPropertiesHW.getUrl() + pagePath);
     }
 
     protected abstract By getPageIdentifier() throws InterruptedException;

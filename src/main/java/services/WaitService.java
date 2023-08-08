@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import utils.configuration.ReadProperties;
+import utils.configuration.ReadPropertiesHW;
 
 import java.time.Duration;
 import java.util.List;
@@ -24,7 +24,7 @@ public class WaitService {
 
     public WaitService(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(ReadProperties.timeout()));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(ReadPropertiesHW.timeout()));
     }
 
     public WebElement waitForExists(By locator) {
