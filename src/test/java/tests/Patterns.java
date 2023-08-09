@@ -14,7 +14,8 @@ public class Patterns extends BaseTestHW {
     public void E2EPageFactoryTestHW() throws InterruptedException {
         Assert.assertTrue(
                 loginStep2.successLogin(
-                                ReadPropertiesHW.username(),
+                                ReadPropertiesHW.username(), // usernameInput is null
+
                                 ReadPropertiesHW.password()
                         )
                         .isPageOpened()

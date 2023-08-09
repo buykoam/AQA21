@@ -21,7 +21,6 @@ public class LoginPageFactoryHW  extends BasePageHW {
     public LoginPageFactoryHW(WebDriver driver) {
         super(driver);
     }
-
     @Override
     protected By getPageIdentifier() {
         return By.id("login-button");
