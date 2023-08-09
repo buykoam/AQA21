@@ -1,22 +1,21 @@
 package pages;
 
 import baseEntities.BasePage;
-import models.Project;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.Date;
-
-public class AddProjectPage extends BasePage {
-    private final static String pagePath = "/index.php?/dashboard/";
+public class ProjectsPage extends BasePage {
+    private final static String pagePath = "/index.php?/admin/projects/overview";
 
     // Блок описания локаторов для элементов
-    private final By headerTitleLabelLocator = By.xpath("//div[contains(@class, 'content-header-title') and contains(text(), 'All Projects')]");
+    private final By headerTitleLabelLocator = By.className("page_title");
+    private final By projectsTableLocator = By.cssSelector("#content-inner table");
 
     // Блок инициализации
-    public AddProjectPage(WebDriver driver) {
+    public ProjectsPage(WebDriver driver) {
         super(driver);
+
     }
 
     @Override
@@ -31,15 +30,5 @@ public class AddProjectPage extends BasePage {
     // Блок атомарных методов
     public WebElement getHeaderTitle() {
         return driver.findElement(headerTitleLabelLocator);
-    }
-
-    public void fillForm(Project project) {
-/*
-        setProjectName(project.getProjectName());
-        setAnnouncement(project.getAnnouncement());
-        setFlag(project.isFlag());
-        setProjectType(project.getProjectType());
-        setDate(project.getDate());
-*/
     }
 }

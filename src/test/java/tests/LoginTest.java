@@ -1,42 +1,42 @@
 package tests;
 
 import baseEntities.BaseTest;
-import helper.DataHelper;
-import models.User;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.configuration.ReadProperties;
+import utils.configuration.ReadPropertiesHW;
 
 public class LoginTest extends BaseTest {
 
     @Test
     public void successLoginTest() {
-        Assert.assertTrue(
-                loginStep.successLogin(DataHelper.getAdminUser()).isPageOpened()
+        Assert.assertFalse(
+                loginStep.successLogin(
+                                ReadProperties.username(),
+                                ReadProperties.password()
+                        )
+                        .isPageOpened()
         );
     }
 
     @Test
     public void incorrectEmailLoginTest() {
-        User user = new User();
-        user.setEmail("asdasd");
-        user.setPassword(ReadProperties.password());
-
         Assert.assertEquals(
-                loginStep.negativeLogin(user).getErrorTextElement().getText(),
-                "Email/Login or Password is incorrect. Please try again."
-        );
+                loginStep.negativeLogin("sdsd", ReadProperties.password()).errorText.getText(),
+                "Email/Login or Password is incorrect. Please try again.",
+                "Неверное сообщение об ошибке");
     }
 
     @Test
     public void incorrectPswLoginTest() {
-        User user = new User();
-        user.setEmail(ReadProperties.username());
-        user.setPassword("123456");
-
         Assert.assertEquals(
-                loginStep.negativeLogin(user).getErrorTextElement().getText(),
+                loginStep.negativeLogin(ReadProperties.username(), "123").errorFieldText.getText(),
                 "Email/Login or Password is incorrect. Please try again.",
                 "Неверное сообщение об ошибке");
+    }
+
+    @Test
+    public void screenShotTest() {
+        Assert.assertTrue(false);
     }
 }

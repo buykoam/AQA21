@@ -2,8 +2,9 @@ package baseEntities;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import services.WaitService;
-import utils.configuration.ReadProperties;
+import utils.configuration.ReadPropertiesHW;
 
 public abstract class BasePage {
     protected WebDriver driver;
@@ -15,12 +16,15 @@ public abstract class BasePage {
     }
 
     public void openPageByUrl(String pagePath) {
-        driver.get(ReadProperties.getUrl() + pagePath);
+        driver.get(ReadPropertiesHW.getUrl() + pagePath);
     }
 
     protected abstract By getPageIdentifier();
 
     public boolean isPageOpened() {
         return driver.findElement(getPageIdentifier()).isDisplayed();
+    }
+    public void updateElements() {
+        PageFactory.initElements(driver, this);
     }
 }
