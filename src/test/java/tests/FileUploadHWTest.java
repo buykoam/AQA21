@@ -12,7 +12,7 @@ public class FileUploadHWTest extends BaseTest {
         FileUploadPageHW fileUploadPage = new FileUploadPageHW(driver);
         fileUploadPage.openPageByUrl();
 
-        String pathToFile = FileUploadHWTest.class.getClassLoader().getResource(" D:\\TeachMeAQA\\AQA21onl-testng\\src\\test\\resources\\download.jpeg").getPath();
+        String pathToFile = FileUploadHWTest.class.getClassLoader().getResource("download.jpeg").getPath();
         fileUploadPage.getButtonFileUpload().sendKeys(pathToFile);
         fileUploadPage.getButtonFileSubmit().click();
         Assert.assertEquals("download.jpeg",fileUploadPage.getLabelUploaded().getText());
