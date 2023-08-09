@@ -1,0 +1,1 @@
+{"uuid":"ae3c77c0-6d2a-4182-a379-92f1619f51ff","name":"baseEntities.BaseTestHW.setUp","children":["b7bb4da1-2a9f-4d49-9929-0e194bf9ed99"],"description":"","befores":[{"name":"setUp","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1691519173554,"stop":1691519179404}],"afters":[],"start":1691519173553,"stop":1691519179405}
