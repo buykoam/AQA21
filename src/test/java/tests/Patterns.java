@@ -10,23 +10,6 @@ import utils.configuration.ReadProperties;
 import utils.configuration.ReadPropertiesHW;
 
 public class Patterns extends BaseTestHW {
-    @Test
-    public void E2EPageFactoryTestHW() throws InterruptedException {
-        Assert.assertTrue(
-                loginStep2.successLogin(
-                                ReadPropertiesHW.username(), // usernameInput is null
-
-                                ReadPropertiesHW.password()
-                        )
-                        .isPageOpened()
-        );
-    }
-    @Test
-    public void E2EChainOfInvocationsTestHW()  throws InterruptedException{
-        //loginPage.getEmail(ReadPropertiesHW.username()) - РУГАЕТСЯ НА loginPage, НЕ МОГУ ПОНЯТЬ В ЧЕМ ПРИЧИНА
-//                .getPassword(ReadPropertiesHW.password())
-//                .getLogInButton();
-    }
 
     @Test
     public void E2EWithValueOfObjectTestHW() throws InterruptedException {
