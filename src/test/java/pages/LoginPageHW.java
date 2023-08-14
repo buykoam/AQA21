@@ -59,8 +59,8 @@ public class LoginPageHW extends BasePageHW {
 
     // Блок комплексных методов
     public void login(User user) {
-        getUsernameInput().sendKeys(user.getUsername1());
-        getPswInput().sendKeys(user.getPassword1());
+        getUsernameInput().sendKeys(user.getUsername());
+        getPswInput().sendKeys(user.getPassword());
         getLogInButton().click();
     }
 
