@@ -14,14 +14,19 @@ public class CheckBox {
     public CheckBox(WebDriver driver, WebElement webElement) {
         this.uiElement = new UIElement(driver, webElement);
     }
-    public void setCheckBox() {
-        if (uiElement.isSelected() && !uiElement.isSelected()) {
+
+    public void set() {
+        setFlag(true);
+        }
+    public void remove() {
+        setFlag(false);
+        }
+    private void setFlag(boolean flag){
+        if (!isSelected()&& flag){
             uiElement.click();
         }
     }
-    public void removeCheckBox() {
-        if (uiElement.isSelected() && uiElement.isSelected()) {
-            uiElement.click();
-        }
+    public boolean isSelected() {
+    return uiElement.isSelected();
     }
 }

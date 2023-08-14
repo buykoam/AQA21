@@ -2,8 +2,11 @@ package tests;
 
 import baseEntities.BaseTest;
 import elements.DropDown;
+import elements.RadioButton;
+import elements.UIElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.EditProjectPage;
 import pages.AddProjectPage;
@@ -21,7 +24,7 @@ public class WrappersTestHW extends BaseTest {
     }
 
     private void setCheckBox(WebElement webElement) throws InterruptedException {
-        if (!webElement.isSelected()) {
+        if (setCheckBox(true)) {
             webElement.click();
         }
     }
@@ -41,23 +44,16 @@ public class WrappersTestHW extends BaseTest {
                 ReadProperties.username(),
                 ReadProperties.password()
         );
+    }
+
+    private void setRadiobutton(WebElement webElement) throws InterruptedException {
         EditProjectPage editProjectPage = new EditProjectPage(driver);
         editProjectPage.openPageByUrl();
-    }
+        RadioButton radioButtons = editProjectPage.getRadioButtonTable();
+        UIElement radioButton = radioButtons.getRadioButton(3);
+        radioButton.click();
 
-    private void setradiobutton(WebElement webElement) throws InterruptedException {
-        if (!webElement.isSelected()) {
-            webElement.click();
-        }
-    }
-
-    private void removeradiobutton(WebElement webElement) throws InterruptedException {
-        if (!webElement.isSelected()) {
-            webElement.click();
-        }
-
-        WebElement el1 = driver.findElement(By.cssSelector("class1")).findElement(By.cssSelector("class2"));
-        WebElement el2 = webElement.findElement(By.cssSelector("class1")).findElement(By.cssSelector("class2"));
+        Assert.assertTrue(radioButtons.isRadioButtonClick(radioButton));
     }
 
 
