@@ -1,23 +1,34 @@
 package models;
 
 import lombok.*;
+import org.apache.commons.lang3.builder.ToStringExclude;
 
 @Data
+@NoArgsConstructor(force = true)
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class User {
+
     @EqualsAndHashCode.Exclude
     private int id;
 
-    @NonNull
+    @ToString.Exclude
+
     private String username;
 
-    @NonNull @With(AccessLevel.PROTECTED)
+    @ToString.Exclude
+    @With(AccessLevel.PROTECTED)
     private String password;
 
-    //@ToString.Exclude
+    @NonNull
+    private String username1;
+
+    @NonNull @With(AccessLevel.PROTECTED)
+    private String password1;
+
+    @ToString.Exclude
     private String email;
 
-    //@ToString.Exclude
+    @ToString.Exclude
     private String code;
 }

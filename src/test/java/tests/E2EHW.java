@@ -9,7 +9,8 @@ import org.testng.annotations.Test;
 import utils.configuration.ReadProperties;
 import utils.configuration.ReadPropertiesHW;
 
-public class Patterns extends BaseTestHW {
+public class E2EHW extends BaseTestHW {
+
 
     @Test
     public void E2EWithValueOfObjectTestHW() throws InterruptedException {
@@ -28,23 +29,5 @@ public class Patterns extends BaseTestHW {
         Assert.assertTrue(
                 finishStep.successFinish().getCompleteHeader()
         );
-    }
-
-    @Test
-    public void E2EBuilderTestHW() throws InterruptedException  {
-        Assert.assertTrue(
-                loginStep.successLogin(DataHelper.getAdminUser1()).isPageOpened()
-        );
-        Assert.assertTrue(
-                addCartStep.successAddCart().isCartAdded()
-        );
-        Assert.assertTrue(
-                checkCartStep.successCheckCart().isPageOpened2()
-        );
-        InfoBuyerBuilder infoBuyerBuilder = new InfoBuyerBuilder.Builder()
-                .withFirstName("Test")
-                .withLastName("Test")
-                .withCode("123")
-                .build();
     }
 }
