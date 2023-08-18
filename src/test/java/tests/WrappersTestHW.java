@@ -1,73 +1,29 @@
 package tests;
 
 import baseEntities.BaseTest;
-import elements.DropDown;
-import elements.RadioButton;
-import elements.UIElement;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import helper.DataHelper;
+import models.User;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.EditProjectPage;
-import pages.AddProjectPage;
+import pages.AddTestCasePage;
 import utils.configuration.ReadProperties;
 
 public class WrappersTestHW extends BaseTest {
-    @Test
-    public void checkboxTest() {
-        loginStep.successLogin(
-                ReadProperties.username(),
-                ReadProperties.password()
-        );
-        EditProjectPage editProjectPage = new EditProjectPage(driver);
-        editProjectPage.openPageByUrl();
-    }
-
-    private void setCheckBox(WebElement webElement) throws InterruptedException {
-        if (setCheckBox(true)) {
-            webElement.click();
-        }
-    }
-
-    private void removeCheckBox(WebElement webElement) throws InterruptedException {
-        if (!webElement.isSelected()) {
-            webElement.click();
-        }
-
-        WebElement el1 = driver.findElement(By.cssSelector("class1")).findElement(By.cssSelector("class2"));
-        WebElement el2 = webElement.findElement(By.cssSelector("class1")).findElement(By.cssSelector("class2"));
-    }
 
     @Test
-    public void radiobuttonTest() {
-        loginStep.successLogin(
-                ReadProperties.username(),
-                ReadProperties.password()
-        );
-    }
+    public void successLoginTest() {
+        loginStep.successLogin(DataHelper.getAdminUser());
+        projectStep.AddProject(DataHelper.getProject());
 
-    private void setRadiobutton(WebElement webElement) throws InterruptedException {
-        EditProjectPage editProjectPage = new EditProjectPage(driver);
-        editProjectPage.openPageByUrl();
-        RadioButton radioButtons = editProjectPage.getRadioButtonTable();
-        UIElement radioButton = radioButtons.getRadioButton(3);
-        radioButton.click();
+        driver.get("https://aqa21onl03.testrail.io/index.php?/cases/add/2");
+        AddTestCasePage addTestCasePage = new AddTestCasePage(driver);
+        addTestCasePage.getTemplateDropDown().selectByIndex(1);
+        addTestCasePage.getTypeDropDown().selectByIndex(1);
+        addTestCasePage.getTemplateDropDown().selectByText("Test Case (Steps)");
+        addTestCasePage.getTypeDropDown().selectByText("Other");
 
-        Assert.assertTrue(radioButtons.isRadioButtonClick(radioButton));
-    }
+        addTestCasePage.getTemplateDropDown().getOptionsList().forEach(System.out::println);
 
-
-
-    @Test
-    public void dropdownTest() {
-        loginStep.successLogin(
-                ReadProperties.username(),
-                ReadProperties.password()
-        );
-        AddProjectPage addProjectPage = new  AddProjectPage(driver);
-        addProjectPage.openPageByUrl();
-        addProjectPage.dropdown();
-        addProjectPage.textDropDown();
     }
 
 }

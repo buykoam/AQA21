@@ -3,36 +3,37 @@ package elements;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class RadioButton {
-    private UIElement uiElement;
-    private List<UIElement> cellRadioButtons;
+    private List<UIElement> optionsList = new ArrayList<>();
+    private List<String> textsList = new ArrayList<>();
+    private List<String> valuesList = new ArrayList<>();
 
     public RadioButton(WebDriver driver, By by) {
-        this.uiElement = new UIElement(driver, by);
-        List<UIElement> cellRadioButtons;
+        for (WebElement webElement : driver.findElements(by)) {
+            UIElement element = new UIElement(driver, webElement);
+            optionsList.add(element);
+            textsList.add(element.findUIElement(By.xpath("parent::*/strong")).getText());
+            valuesList.add(element.getAttribute("value"));
+        }
     }
 
-    public RadioButton(WebDriver driver, WebElement webElement) {
-        this.uiElement = new UIElement(driver, webElement);
+    public void selectByIndex(int index) {
+        optionsList.get(index).click();
     }
 
-    public boolean isRadioButtonClick(UIElement radioButton) {
-        return radioButton.isSelected();
-    }
-    public UIElement getRadioButton(int index) {
-        return cellRadioButtons.get(index).findElement(By.tagName("input"));
+    public void selectByText(String text) {
+        optionsList.get(textsList.indexOf(text)).click();
     }
 
-    public UIElement getRadioButtonByName(String radioButtonName) {
+    public void selectByValue(String value) {
+        optionsList.get(valuesList.indexOf(value)).click();
+    }
 
-        for (UIElement cell : cellRadioButtons) {
-            UIElement tagStrong = cell.findElement(By.tagName("strong"));
-            if (tagStrong.getText().equals(radioButtonName)) {
-                return cell.findElement(By.tagName("input"));
-            }
-        } return null;
+    public List<String> getOptionsTextList() {
+        return textsList;
     }
 }
