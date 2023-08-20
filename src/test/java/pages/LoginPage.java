@@ -1,6 +1,7 @@
 package pages;
 
 import baseEntities.BasePage;
+import com.codeborne.selenide.SelenideElement;
 import models.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,6 +10,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+
+import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage extends BasePage {
 
@@ -20,8 +23,8 @@ public class LoginPage extends BasePage {
     private final By errorFieldTextLocator = By.className("loginpage-message");
 
     // Блок инициализации
-    public LoginPage(WebDriver driver) {
-        super(driver);
+    public LoginPage() {
+        super();
     }
 
     @Override
@@ -30,39 +33,38 @@ public class LoginPage extends BasePage {
     }
 
     // Блок атомарных методов
-    public WebElement getEmailInput() {
-        return waitService.waitForExists(emailInputLocator);
+    public SelenideElement getEmailInput() {
+        return $(emailInputLocator);
     }
 
-    public WebElement getPswInput() {
-        return waitService.waitForExists(pswInputLocator);
+    public SelenideElement getPswInput() {
+        return $(pswInputLocator);
     }
 
     public boolean isPswInputDisplayed() {
-        return waitService.waitForVisibility(getPswInput()).isDisplayed();
+        return $(getPswInput()).isDisplayed();
     }
 
-    public WebElement getLogInButton() {
-        return driver.findElement(logInButtonLocator);
+    public SelenideElement getLogInButton() {
+        return $(logInButtonLocator);
     }
 
     public void setEmail(String value) {
-        getEmailInput().sendKeys(value);
+        getEmailInput().setValue(value);
     }
 
-    public WebElement getErrorTextElement() {
-        return driver.findElement(errorTextLocator);
+    public SelenideElement getErrorTextElement() {
+        return $(errorTextLocator);
     }
 
-    public WebElement getErrorFieldTextElement() {
-        return driver.findElement(errorFieldTextLocator);
+    public SelenideElement getErrorFieldTextElement() {
+        return $(errorFieldTextLocator);
     }
 
     // Блок комплексных методов
-    public void login(String username, String password) {
-        setEmail(username);
-        getPswInput().sendKeys(password);
+    public void login(User user) {
+        setEmail(user.getEmail());
+        getPswInput().sendKeys(user.getPassword());
         getLogInButton().click();
     }
-
 }
