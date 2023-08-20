@@ -59,9 +59,9 @@ public class LoginPage extends BasePage {
     }
 
     // Блок комплексных методов
-    public void login(User user) {
-        setEmail(user.getEmail());
-        getPswInput().sendKeys(user.getPassword());
+    public void login(String username, String password) {
+        setEmail(username);
+        getPswInput().sendKeys(password);
         getLogInButton().click();
     }
 

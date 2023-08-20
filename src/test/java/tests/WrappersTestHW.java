@@ -12,14 +12,14 @@ public class WrappersTestHW extends BaseTest {
 
     @Test
     public void successLoginTest() {
-        loginStep.successLogin(DataHelper.getAdminUser());
+        loginStep.successLogin(ReadProperties.username(), ReadProperties.password());
         projectStep.AddProject(DataHelper.getProject());
 
         driver.get("https://aqa21onl03.testrail.io/index.php?/cases/add/2");
         AddTestCasePage addTestCasePage = new AddTestCasePage(driver);
-        addTestCasePage.getTemplateDropDown().selectByIndex(1);
-        addTestCasePage.getTypeDropDown().selectByIndex(1);
-        addTestCasePage.getTemplateDropDown().selectByText("Test Case (Steps)");
+        addTestCasePage.getTemplateDropDown().selectByIndex(0);
+        addTestCasePage.getTypeDropDown().selectByIndex(0);
+        addTestCasePage.getTemplateDropDown().selectByText("Test Case (Text)");
         addTestCasePage.getTypeDropDown().selectByText("Other");
 
         addTestCasePage.getTemplateDropDown().getOptionsList().forEach(System.out::println);
