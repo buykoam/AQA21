@@ -18,7 +18,9 @@ public class ReadProperties {
     public static String getUrl() {
         return properties.getProperty("url");
     }
-
+    public static String getUrlHW() {
+        return properties.getProperty("url1");
+    }
     public static String browserName() {
         return properties.getProperty("browser");
     }
@@ -26,9 +28,15 @@ public class ReadProperties {
     public static String username() {
         return properties.getProperty("username");
     }
+    public static String usernameHW() {
+        return properties.getProperty("username1");
+    }
 
     public static String password() {
         return properties.getProperty("password");
+    }
+    public static String passwordHW() {
+        return properties.getProperty("password1");
     }
 
     public static int timeout() {
