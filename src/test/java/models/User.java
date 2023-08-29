@@ -3,7 +3,7 @@ package models;
 import lombok.*;
 
 @Data
-@NoArgsConstructor
+@NoArgsConstructor(force = true)
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class User {
@@ -17,7 +17,7 @@ public class User {
     private String password;
 
     //@ToString.Exclude
-    private String email;
+    private String user;
 
     //@ToString.Exclude
     private String code;

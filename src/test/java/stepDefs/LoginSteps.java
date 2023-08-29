@@ -7,6 +7,7 @@ import io.cucumber.java.en.When;
 import org.testng.Assert;
 import pages.DashboardPage;
 import pages.LoginPage;
+import pages.ProductPage;
 import utils.configuration.ReadProperties;
 
 public class LoginSteps extends BaseTest {
@@ -30,7 +31,7 @@ public class LoginSteps extends BaseTest {
     @When("user enter username {} and password {}")
     public void setUsernameAndPassword(String username, String password) {
         loginPage = new LoginPage(driver);
-        loginPage.getEmailInput().sendKeys(username);
+        loginPage.getUserInput().sendKeys(username);
         loginPage.getPswInput().sendKeys(password);
     }
 
@@ -39,8 +40,8 @@ public class LoginSteps extends BaseTest {
         loginPage.getLogInButton().click();
     }
 
-    @Then("dashboard page is displayed")
-    public void isDashboardPageDisplayed() {
-        Assert.assertTrue(new DashboardPage(driver).isPageOpened());
+    @Then("products page is displayed")
+    public void isProductPageDisplayed() {
+        Assert.assertTrue(new ProductPage(driver).isPageOpened());
     }
 }
