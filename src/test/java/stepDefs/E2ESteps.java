@@ -5,16 +5,15 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-import pages.DashboardPage;
 import pages.LoginPage;
 import pages.ProductPage;
 import utils.configuration.ReadProperties;
 
-public class LoginSteps extends BaseTest {
+public class E2ESteps extends BaseTest {
     private BaseTest baseTest;
     private LoginPage loginPage;
 
-    public LoginSteps(BaseTest baseTest) {
+    public E2ESteps(BaseTest baseTest) {
         this.baseTest = baseTest;
     }
 
