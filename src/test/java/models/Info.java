@@ -6,19 +6,15 @@ import lombok.*;
 @NoArgsConstructor(force = true)
 @AllArgsConstructor
 @RequiredArgsConstructor
-public class User {
+public class Info {
     @EqualsAndHashCode.Exclude
     private int id;
 
     @NonNull
-    private String username;
+    private String firstname;
 
     @NonNull @With(AccessLevel.PROTECTED)
-    private String password;
-
-    //@ToString.Exclude
-    private String user;
-
+    private String lastname;
     //@ToString.Exclude
     private String code;
 }

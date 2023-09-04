@@ -13,11 +13,9 @@ import java.time.Duration;
 public class LoginPage extends BasePage {
 
     // Блок описания локаторов для элементов
-    private final By emailInputLocator = By.id("name");
+    private final By userInputLocator = By.id("user-name");
     private final By pswInputLocator = By.id("password");
-    private final By logInButtonLocator = By.id("button_primary");
-    private final By errorTextLocator = By.className("error-text");
-    private final By errorFieldTextLocator = By.className("loginpage-message");
+    private final By logInButtonLocator = By.id("login-button");
 
     // Блок инициализации
     public LoginPage(WebDriver driver) {
@@ -30,8 +28,8 @@ public class LoginPage extends BasePage {
     }
 
     // Блок атомарных методов
-    public WebElement getEmailInput() {
-        return waitService.waitForExists(emailInputLocator);
+    public WebElement getUserInput() {
+        return waitService.waitForExists(userInputLocator);
     }
 
     public WebElement getPswInput() {
@@ -46,21 +44,13 @@ public class LoginPage extends BasePage {
         return driver.findElement(logInButtonLocator);
     }
 
-    public void setEmail(String value) {
-        getEmailInput().sendKeys(value);
-    }
-
-    public WebElement getErrorTextElement() {
-        return driver.findElement(errorTextLocator);
-    }
-
-    public WebElement getErrorFieldTextElement() {
-        return driver.findElement(errorFieldTextLocator);
+    public void setUser(String value) {
+        getUserInput().sendKeys(value);
     }
 
     // Блок комплексных методов
     public void login(User user) {
-        setEmail(user.getEmail());
+        setUser(user.getUser());
         getPswInput().sendKeys(user.getPassword());
         getLogInButton().click();
     }

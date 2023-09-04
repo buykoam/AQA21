@@ -30,6 +30,15 @@ public class ReadProperties {
     public static String password() {
         return properties.getProperty("password");
     }
+    public static String firstname() {
+        return properties.getProperty("firstname");
+    }
+    public static String lastname() {
+        return properties.getProperty("lastname");
+    }
+    public static String code() {
+        return properties.getProperty("code");
+    }
 
     public static int timeout() {
         return Integer.parseInt(properties.getProperty("timeout"));
