@@ -12,8 +12,8 @@ Feature: E2E test
     Then your cart page is displayed
     * user click on the checkout button
     Then your information page is displayed
-    * user enter first name and lastname and postal code
-    * user clicks continue button
-    Then  overview page is displayed
+    * user enter firstname Anastasiya and lastname Buiko and code 1213
     * user click on the finish button
     Then  complete page is displayed
+
+
